@@ -12,7 +12,7 @@ github_repo: "https://github.com/caosw199509/caosw199509.github.io.git" # you co
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "穷则思变，差则思勤！没有比人更高的山没有比脚更长的路。"
-sidebar-avatar: /img/1556966015452.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar_m.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
