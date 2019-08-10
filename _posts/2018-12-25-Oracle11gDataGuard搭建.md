@@ -12,10 +12,7 @@ tags:
 ---
 
 # Oracle11g Data Guard 搭建
-[基础设施支持部 - 曹胜旺]
 
-
- [toc]
 ### 1、 环境说明
 系统环境以及hosts配置
 
