@@ -4,7 +4,7 @@ title:      Oracle11g Data Guard 搭建
 subtitle:   Oracle11g Data Guard 搭建
 date:       2018-12-25
 author:     caosw
-header-img: img/post-bg-debug.jpg
+header-img: img/home-bg-art.jpg
 catalog: true
 tags:
     - Oracle
