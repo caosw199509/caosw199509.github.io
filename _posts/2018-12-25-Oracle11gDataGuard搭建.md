@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Oracle11g Data Guard 搭建
-subtitle:   Oracle11g Data Guard 搭建
+subtitle:   Oracle DataGuard是Oracle自带的数据同步功能，基本原理是将日志文件从原数据库传输到目标数据库，然后在目标数据库上应用这些日志文件，从而使目标数据库与源数据库保持同步，是一种数据库级别的高可用性方案。
 date:       2018-12-25
 author:     caosw
 header-img: img/home-bg-art.jpg
