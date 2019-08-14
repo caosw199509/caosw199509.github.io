@@ -61,7 +61,7 @@ disqus_username: caosw199509
 
 # Gitalk
 gitalk:
-  enable: true    #是否开启Gitalk评论
+  enable: false    #是否开启Gitalk评论
   clientID: eb72b9506360e527af2d                            #生成的clientID
   clientSecret: 4197647a2c66e79f31eff86401304605adddbcdf    #生成的clientSecret
   repo: caosw199509.github.io    #仓库名称
