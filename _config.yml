@@ -7,7 +7,7 @@ description: "Every failure is leading towards success."
 keyword: "BY, BY Blog, 瑾熙的博客, caosw, 曹胜旺, iOS, Apple, iPhone"
 url: "https://caosw199509.github.io/"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/caosw199509/caosw199509.github.io.git" # you code repository
+github_repo: "https://github.com/caosw199509/caosw199509.github.io" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
@@ -18,11 +18,11 @@ sidebar-avatar: /img/avatar_m.jpg      # use absolute URL, seeing it's used in b
 
 # SNS settings
 RSS: false
-# weibo_username:     qiubaiying
-zhihu_username:     caosw
-github_username:    caosw
-facebook_username:  baiying.qiu.7
-jianshu_username:   e71990ada2fd
+weibo_username:     晁封
+zhihu_username:     曹胜旺
+github_username:    caosw199509
+facebook_username:  caosw
+jianshu_username:   50876fe163a4
 #twitter_username:   qiubaiying
 
 
@@ -57,7 +57,7 @@ kramdown:
 
 # 评论系统
 # Disqus（https://disqus.com/）
-# disqus_username: qiubaiying
+disqus_username: caosw199509
 
 # Gitalk
 gitalk:
@@ -74,11 +74,11 @@ gitalk:
 
 # Analytics settings
 # Baidu Analytics
-ba_track_id: b50bf2b12b5338a1845e33832976fd68
+ba_track_id: 805f9cb837854873798e7f734beda365
 
 # Google Analytics
-ga_track_id: 'UA-90855596-1'            # Format: UA-xxxxxx-xx
-ga_domain: qiubaiying.top               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+ga_track_id: 'UA-145656306-1'            # Format: UA-xxxxxx-xx
+ga_domain: caosw.top               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
 
@@ -103,7 +103,7 @@ friends: [
         href: "http://www.baidu.com"
     },{
         title: "简书",
-        href: "http://www.jianshu.com"
+        href: "https://www.jianshu.com/u/50876fe163a4"
     },{
         title: "Google",
         href: "https://www.google.com"
