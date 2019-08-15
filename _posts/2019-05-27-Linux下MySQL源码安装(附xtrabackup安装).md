@@ -60,7 +60,7 @@ MySQL安装需要初始化数据目录用于存放MySQL数据库的表
     server-id = 11port = 3306
     user = mysql
     bind_address = 0.0.0.0
-    skip_name_resolve
+    #skip_name_resolve
     autocommit = 1  
     character_set_server=utf8mb4
     datadir = /data/mysql_data
@@ -160,7 +160,7 @@ MySQL安装需要初始化数据目录用于存放MySQL数据库的表
     #validate_password_policy=STRONG
     #validate-password=FORCE_PLUS_PERMANENT
     # need change it
-    report-host=192.168.188.155
+    report-host=127.0.0.1
     [mysqld-5.6]
     # metalock performance settings
     metadata_locks_hash_instances=64
@@ -210,7 +210,8 @@ MySQL安装需要初始化数据目录用于存放MySQL数据库的表
     mysql      2578   1358 35 04:12 pts/1    00:00:04 /usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql --datadir=/data/mysql_data --plugin-dir=/usr/local/mysql/lib/plugin --user=mysql --log-error=error.log --pid-file=/data/mysql_data/mysql.pid --port=3306
     root       2645   1187  0 04:12 pts/1    00:00:00 grep --color=auto mysql
     [root@mysql mysql_data]# mysqladmin -u root password Gepoint
-至此MySQL部分安装完成，可以通过mysql -uroot -p验证是否能够登陆。如果想通过外部进行访问该数据库还需要关闭防火墙，以及修改/etc/selinux/config，最后需要创建一个root用户提供外部连接。
+
+<br/>至此MySQL部分安装完成，可以通过mysql -uroot -p验证是否能够登陆。如果想通过外部进行访问该数据库还需要关闭防火墙，以及修改/etc/selinux/config，最后需要创建一个root用户提供外部连接。
 
     [root@mysql ~]# vi /etc/selinux/config 
     SELINUX=disabled
