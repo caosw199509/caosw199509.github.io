@@ -101,6 +101,7 @@ oracle版本信息
     /u01/app/oracle/oradata/orcl/redo03.log
     /u01/app/oracle/oradata/orcl/redo02.log
     /u01/app/oracle/oradata/orcl/redo01.log
+
 添加standby redo logfile
 
     SQL> alter database add standby logfile '/u01/app/oracle/oradata/orcl/stdredo01.log' size 200M;
@@ -111,6 +112,7 @@ oracle版本信息
     Database altered.
     SQL> alter database add standby logfile '/u01/app/oracle/oradata/orcl/stdredo04.log' size 200M;
     Database altered.
+
 再次查看日志信息
 
     SQL> select member from v$logfile;
