@@ -43,10 +43,11 @@ oracle版本信息
 	------------------------------
 	YES
 
-###3、 启动数据库归档模式
+### 3、 启动数据库归档模式
 创建存放归档日志的目录
 
     [oracle@primary ~]$ mkdir -p /u01/archive
+
 开启归档模式
 
     --查看数据库是否已开启归档
@@ -146,6 +147,7 @@ oracle版本信息
         )
       )
     ADR_BASE_LISTENER = /u01/app/oracle
+
 重启监听
 
     [oracle@primary admin]$ lsnrctl reload
@@ -173,11 +175,13 @@ oracle版本信息
           (SERVICE_NAME = orcl)
         )
       )
+
 将primary库上的tnsname.ora文件复制到standby库上
 
     [oracle@primary admin]$ scp tnsnames.ora oracle@standby:/u01/app/oracle/product/11.2.0/db_1/network/admin/
     oracle@standby's password: 
     tnsnames.ora                                     100%  682   592.0KB/s   00:00 
+
 配置完成后，通过tnsping命令进行校验，需要项目ping通对方才行。如果ping不通，检查是否关闭防火墙或者配置是不是存在问题
 
     [oracle@primary ~]$ tnsping standby
@@ -207,6 +211,7 @@ oracle版本信息
 
     SQL> create pfile from spfile;
     File created.
+
 pfile文件添加内容
 
     [oracle@primary dbs]$ vi initorcl.ora 
@@ -220,6 +225,7 @@ pfile文件添加内容
     *.fal_server='standby'
     *.log_file_name_convert='/u01/app/oracle/oradata/orcl','/u01/app/oracle/oradata/orcl'
     *.db_file_name_convert='/u01/app/oracle/oradata/orcl','/u01/app/oracle/oradata/orcl'
+
 使用新的参数重启数据库
 
     SQL> create spfile from pfile;
@@ -246,6 +252,7 @@ pfile文件添加内容
     [oracle@primary dbs]$ scp initorcl.ora oracle@standby:$ORACLE_HOME/dbs 
     oracle@standby's password: 
     initorcl.ora                                       100% 1545   983.4KB/s   00:00 
+
 修改备库中的参数文件
 
     [oracle@standby dbs]$ vi initorcl.ora 
@@ -260,6 +267,7 @@ pfile文件添加内容
     *.fal_server='primary'
     *.log_file_name_convert='/u01/app/oracle/oradata/orcl','/u01/app/oracle/oradata/orcl'
     *.db_file_name_convert='/u01/app/oracle/oradata/orcl','/u01/app/oracle/oradata/orcl'
+
 通过pfile文件生成spfile并将standby库启动到nomount状态
 
     SQL> create spfile from pfile;
@@ -271,6 +279,7 @@ pfile文件添加内容
     Variable Size             616564520 bytes
     Database Buffers          348127232 bytes
     Redo Buffers                5947392 bytes
+
 重启监听
 
 ### 11、在主库上开始进行duplicate achive
@@ -282,6 +291,7 @@ pfile文件添加内容
     Copyright (c) 1982, 2011, Oracle and/or its affiliates.  All rights reserved.
     connected to target database: ORCL (DBID=1524649093)
     connected to auxiliary database: ORCL (not mounted)
+
 开始进行复制
 
     RMAN> duplicate target database for standby from active database nofilenamecheck dorecover;
@@ -431,18 +441,21 @@ pfile文件添加内容
     MOUNTED
     SQL> alter database open;
     Database altered.
+
 查看主库
 
     SQL> select log_mode,open_mode ,database_role from v$database;
     LOG_MODE     OPEN_MODE            DATABASE_ROLE
     ------------ -------------------- ----------------
     ARCHIVELOG   READ WRITE           PRIMARY
+
 查看备库
 
     SQL> select log_mode,open_mode ,database_role from v$database;
     LOG_MODE     OPEN_MODE            DATABASE_ROLE
     ------------ -------------------- ----------------
     ARCHIVELOG   READ ONLY            PHYSICAL STANDBY
+
 启动real-time apply
 
     SQL>  alter database recover managed standby database using current logfile disconnect from session;
@@ -459,6 +472,7 @@ pfile文件添加内容
     Table created.
     SQL> alter system switch logfile;
     System altered.
+
 查看备库中是否存在表test
 
     SQL> select count(*) from test;
