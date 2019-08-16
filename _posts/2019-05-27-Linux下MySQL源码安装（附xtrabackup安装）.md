@@ -224,7 +224,7 @@ MySQL安装需要初始化数据目录用于存放MySQL数据库的数据
 ## 附：
 xtrabackup是MySQL物理热备利器。
 安装步骤如下：
-### 1、安装依�?
+### 1、安装依赖
 
     [root@mysql opt]# yum install -y libev perl-DBD-MySQL perl-Digest-MD5 rsync
 
