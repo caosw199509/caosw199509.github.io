@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      Linux下MySQL源码安装(附xtrabackup安装)
-subtitle:   Linux服务器上可以通过rpm包直接安装MySQL，但是通过源码包安装可以手动配置一些参数，更利于MySQl的理解。
+title:      Linux下MySQL源码安装（附xtrabackup安装）
+subtitle:   Linux服务器上可以通过rpm包直接安装MySQL，但是通过源码包安装可以手动配置一些参数，更利于MySQl的理解�?
 date:       2019-05-27
 author:     caosw
 header-img: img/post-bg-os-metro.jpg
@@ -12,33 +12,33 @@ tags:
 
 # Linux下MySQL源码安装(附xtrabackup安装)
 ***
-环境说明：
+环境说明�?
 Centos7.4 最小化安装
 
 ### 1、创建mysql用户和用户组
-运行MySQL的mysqld需要一个用户和用户组
+运行MySQL的mysqld需要一个用户和用户�?
 
     [root@mysql ~]# groupadd mysql
     [root@mysql ~]# useradd -r -g mysql -s /bin/false mysql
 
-### 2、创建数据目录
-MySQL安装需要初始化数据目录用于存放MySQL数据库的表
-该目录可以个人自行设置
+### 2、创建数据目�?
+MySQL安装需要初始化数据目录用于存放MySQL数据库的�?
+该目录可以个人自行设�?
 同时需要对设置该目录的用户和组
 
     [root@mysql ~]# mkdir -p /data/mysql_data
     [root@mysql ~]# chown -R mysql:mysql /data/mysql_data/
 
-### 3、解压源码包创建软链接
-将源码包上传至服务器的/opt目录下并解压
-在/usr/local/目录下创建相应的软链接
+### 3、解压源码包创建软链�?
+将源码包上传至服务器�?/opt目录下并解压
+�?/usr/local/目录下创建相应的软链�?
 
     [root@mysql opt]# tar zxvf mysql-5.7.24-linux-glibc2.12-x86_64.tar.gz
     [root@mysql opt]# ln -s /opt/mysql-5.7.24-linux-glibc2.12-x86_64 /usr/local/mysql
 
-### 4、配置环境变量
+### 4、配置环境变�?
 修改/etc/profile文件
-添加mysql相关的环境变量
+添加mysql相关的环境变�?
 
     [root@mysql opt]# vi /etc/profile
     export PATH=/usr/local/mysql/bin:$PATH
@@ -46,9 +46,9 @@ MySQL安装需要初始化数据目录用于存放MySQL数据库的表
     [root@mysql opt]# source /etc/profile
 
 ### 5、配置数据库参数文件my.cnf
-参数文件存放在/etc目录下
+参数文件存放�?/etc目录�?
 参数文件中的datadir具体看个人创建的数据目录
-其他参数也可看需求进行更改
+其他参数也可看需求进行更�?
 
     [root@mysql etc]# vi /etc/my.cnf
     [client]
@@ -187,21 +187,21 @@ MySQL安装需要初始化数据目录用于存放MySQL数据库的表
     performance_schema_max_digest_length = 4096
     performance_schema_max_table_instances=35000
 
-### 6、初始化数据库
+### 6、初始化数据�?
 
     [root@mysql etc]# mysqld --initialize-insecure
 
-### 7、配置MySQL启动项并设置为开机自启
+### 7、配置MySQL启动项并设置为开机自�?
 在源码包的support-files目录下有一个mysql.server可以通过该文件启动MySQL服务
 通常将MySQL配置为系统服务将其复制到/etc/init.d/下并重命名为mysqld
-通过chkconfig将mysqld添加为开机自启服务
+通过chkconfig将mysqld添加为开机自启服�?
 
     [root@mysql mysql_data]# cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
     [root@mysql mysql_data]# chkconfig --add mysqld
     [root@mysql mysql_data]# chkconfig --list mysqld
     mysqld          0:off   1:off   2:on    3:on    4:on    5:on    6:off
 
-### 8、启动MySQL服务并修改密码
+### 8、启动MySQL服务并修改密�?
 
     [root@mysql mysql_data]# service mysqld start
     Starting MySQL..... SUCCESS!
@@ -211,7 +211,7 @@ MySQL安装需要初始化数据目录用于存放MySQL数据库的表
     root       2645   1187  0 04:12 pts/1    00:00:00 grep --color=auto mysql
     [root@mysql mysql_data]# mysqladmin -u root password Gepoint
 
-<br/>至此MySQL部分安装完成，可以通过mysql -uroot -p验证是否能够登陆。如果想通过外部进行访问该数据库还需要关闭防火墙，以及修改/etc/selinux/config，最后需要创建一个root用户提供外部连接。
+<br/>至此MySQL部分安装完成，可以通过mysql -uroot -p验证是否能够登陆。如果想通过外部进行访问该数据库还需要关闭防火墙，以及修�?/etc/selinux/config，最后需要创建一个root用户提供外部连接�?
 
     [root@mysql ~]# vi /etc/selinux/config 
     SELINUX=disabled
@@ -222,9 +222,9 @@ MySQL安装需要初始化数据目录用于存放MySQL数据库的表
     mysql> flush privileges;
 
 ## 附：
-xtrabackup是MySQL物理热备利器。
-安装步骤如下：
-### 1、安装依赖
+xtrabackup是MySQL物理热备利器�?
+安装步骤如下�?
+### 1、安装依�?
 
     [root@mysql opt]# yum install -y libev perl-DBD-MySQL perl-Digest-MD5 rsync
 
