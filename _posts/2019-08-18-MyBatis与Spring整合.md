@@ -264,38 +264,38 @@ tags:
      http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-4.0.xsd
      http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
      http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util-4.0.xsd">
-     <!-- 读取db.properties -->
-     <context:property-placeholder  location="classpath:db.properties"/>
-     <!-- 配置数据源 -->
-     <bean id="dataSource"  class="org.apache.commons.dbcp2.BasicDataSource">
-         <!-- 数据库驱动 -->
-         <property name="driverClassName"  value="${jdbc.driver}" />
-         <!-- 连接数据库的url -->
-         <property name="url" value="${jdbc.url}" />
-         <!-- 用户名 -->
-         <property name="username"  value="${jdbc.username}" />
-         <!-- 密码 -->
-         <property name="password"  value="${jdbc.password}" />
-         <!-- 最大连接数 -->
-         <property name="maxTotal"  value="${jdbc.maxTotal}" />
-         <!-- 最大空闲连接 -->
-         <property name="maxIdle"  value="${jdbc.maxIdle}" />
-         <!-- 初始化连接数 -->
-         <property name="initialSize"  value="${jdbc.initialSize}" />
-     </bean>
-     <!-- 事务管理器，依赖于数据源 -->
-     <bean id="transactionManager"  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-         <property name="dataSource" ref="dataSource"  />
-     </bean>
-     <!-- 开启事务注解 -->
-     <tx:annotation-driven  transaction-manager="transactionManager"/>
-     <!-- 配置MyBatis工厂 -->
-     <bean id="sqlSessionFactory"  class="org.mybatis.spring.SqlSessionFactoryBean">
-         <!-- 注入数据源 -->
-         <property name="dataSource" ref="dataSource"  />
-         <!-- 指定核心配置文件位置 -->
-         <property name="configLocation"  value="classpath:mybatis-config.xml" />
-     </bean>
+        <!-- 读取db.properties -->
+        <context:property-placeholder  location="classpath:db.properties"/>
+        <!-- 配置数据源 -->
+        <bean id="dataSource"  class="org.apache.commons.dbcp2.BasicDataSource">
+            <!-- 数据库驱动 -->
+            <property name="driverClassName"  value="${jdbc.driver}" />
+            <!-- 连接数据库的url -->
+            <property name="url" value="${jdbc.url}" />
+            <!-- 用户名 -->
+            <property name="username"  value="${jdbc.username}" />
+            <!-- 密码 -->
+            <property name="password"  value="${jdbc.password}" />
+            <!-- 最大连接数 -->
+            <property name="maxTotal"  value="${jdbc.maxTotal}" />
+            <!-- 最大空闲连接 -->
+            <property name="maxIdle"  value="${jdbc.maxIdle}" />
+            <!-- 初始化连接数 -->
+            <property name="initialSize"  value="${jdbc.initialSize}" />
+        </bean>
+        <!-- 事务管理器，依赖于数据源 -->
+        <bean id="transactionManager"  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+            <property name="dataSource" ref="dataSource"  />
+        </bean>
+        <!-- 开启事务注解 -->
+        <tx:annotation-driven  transaction-manager="transactionManager"/>
+        <!-- 配置MyBatis工厂 -->
+        <bean id="sqlSessionFactory"  class="org.mybatis.spring.SqlSessionFactoryBean">
+            <!-- 注入数据源 -->
+            <property name="dataSource" ref="dataSource"  />
+            <!-- 指定核心配置文件位置 -->
+            <property name="configLocation"  value="classpath:mybatis-config.xml" />
+        </bean>
     </beans>
 
 其中，MyBatis工厂的作用就是构建SqlSessionFactory，通过mybatis-spring包中提供的org.mybatis.spring.SqlSessionFactoryBean类进行配置。通常该配置中需要提供两个参数：一个是数据源，另一个是MyBatis的配置文件路径。
@@ -306,14 +306,14 @@ tags:
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE configuration PUBLIC  "http://mybatis.org/dtd/mybatis-3-config.dtd"  "mybatis-3-config.dtd" >
     <configuration>
-     <!-- 配置别名 -->
-     <typeAliases>
-         <package name="com.epoint.po"/>
-     </typeAliases>
-     <!-- 配置Mapper的位置 -->
-     <mappers>
+        <!-- 配置别名 -->
+        <typeAliases>
+            <package name="com.epoint.po"/>
+        </typeAliases>
+        <!-- 配置Mapper的位置 -->
+        <mappers>
         ...
-     </mappers>
+        </mappers>
     </configuration>
 
 ##### 2.4、 创建log4j.properties文件
@@ -345,38 +345,37 @@ tags:
 
     package com.epoint.po;
     public class Customer {
-     private Integer id;
-     private String username;
-     private String jobs;
-     private String phone;
-     public Integer getId() {
-         return id;
-     }
-     public void setId(Integer id) {
-         this.id = id;
-     }
-     public String getUsername() {
-         return username;
-     }
-     public void setUsername(String username) {
-         this.username = username;
-     }
-     public String getJobs() {
-         return jobs;
-     }
-     public void setJobs(String jobs) {
-         this.jobs = jobs;
-     }
-     public String getPhone() {
-         return phone;
-     }
-     public void setPhone(String phone) {
-         this.phone = phone;
-     }
-     @Override
-     public String toString() {
-         return "Customer [id=" + id + ", username=" +  username + ", jobs=" + jobs + ", phone=" + phone + "]";
-     }
+        private Integer id;
+        private String username;
+        private String jobs;
+        private String phone;
+        public Integer getId() {
+            return id;
+        }
+        public void setId(Integer id) {
+            this.id = id;
+        }
+        public String getUsername() {
+            return username;
+        }
+        public void setUsername(String username) {
+            this.username = username;
+        }
+        public String getJobs() {
+            return jobs;
+        }
+        public void setJobs(String jobs) {
+            this.jobs = jobs;
+        }
+        public String getPhone() {
+            return phone;
+        }
+        public void setPhone(String phone) {
+            this.phone = phone;
+        }
+        public String toString() {
+            return "Customer [id=" + id + ", username=" +  username + ", jobs=" + jobs + ", phone=" + phone + "]";
+        }
     }
 
 ##### 3.3、创建映射文件
@@ -385,16 +384,16 @@ tags:
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE mapper PUBLIC  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd"  "mybatis-3-mapper.dtd" >
     <mapper namespace="com.epoint.mapper.CustomerMapper">
-     <!-- 根据id查询客户信息 --->
-     <select id="findCustomerById"  parameterType="Integer"
+        <!-- 根据id查询客户信息 --->
+        <select id="findCustomerById"  parameterType="Integer"
          resultType="customer">
-         select * from t_customer where id = #{id}
-     </select>
+            select * from t_customer where id = #{id}
+        </select>
     </mapper>
 
 ##### 3.4、在MyBatis核心配置文件添加映射文件
 
-    <mapper  resource="com/epoint/mapper/CustomerMapper.xml"/>
+    <mapper resource="com/epoint/mapper/CustomerMapper.xml"/>
 
 ##### 3.5、创建接口
 创建一个com.epoint.dao包，并在包中创建接口CustomerDao，在接口中编写一个通过id查询客户信息的方法findCustomerById()。
