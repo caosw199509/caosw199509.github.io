@@ -562,6 +562,7 @@ tags:
 
     <!-- 开启扫描 -->
     <context:component-scan base-package="com.epoint.service" />
+
 ##### 5.6、整合测试
 在DaoTest测试类中，添加测试方法transactionTest()。
 
