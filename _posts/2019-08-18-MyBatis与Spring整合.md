@@ -577,3 +577,5 @@ tags:
     }
 
 运行，测试结果查看数据中测试数据是否插入成功。
+
+`参考书籍：Java EE企业级应用开发教程（Spring Spring MVC MyBatis）`
