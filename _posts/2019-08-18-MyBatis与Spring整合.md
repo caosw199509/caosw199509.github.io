@@ -558,6 +558,7 @@ tags:
     }
 
 使用Spring的注解@Service来标识业务层的类，使用了@Transactional注解标识事务处理的类，通过@Autowired注解将CustomerMapper接口注入到类中。
+
 ##### 5.5、applicationContext.xml中开启注解扫描
 
     <!-- 开启扫描 -->
