@@ -217,7 +217,7 @@ MySQL安装需要初始化数据目录用于存放MySQL数据库的数据
     SELINUX=disabled
     [root@mysql ~]# systemctl stop firewalld
     [root@mysql ~]# systemctl disable firewalld  
-    mysql> create user 'root'%'%' identified by 'Gepoint';
+    mysql> create user 'root'@'%' identified by 'Gepoint';
     mysql> grant privileges on *.* to 'root'@'%';
     mysql> flush privileges;
 
