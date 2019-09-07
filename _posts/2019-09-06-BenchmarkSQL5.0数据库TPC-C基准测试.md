@@ -137,7 +137,7 @@ jdbc连接部分改成对应的数据库的JDBC连接，这里以Oracle为例:
 
 在20仓128并发终端下，HighGo数据库Tpmc值为90814.89
 
-###### 4.7.2、Oracle
+###### 4.8.2、Oracle
 
 ![](https://github.com/caosw199509/caosw199509.github.io/blob/master/work_img/2019-09-06/oracle02.png?raw=true)
 
@@ -149,6 +149,8 @@ jdbc连接部分改成对应的数据库的JDBC连接，这里以Oracle为例:
 ![](https://github.com/caosw199509/caosw199509.github.io/blob/master/work_img/2019-09-06/highgo03.png?raw=true)
 
 在40仓64并发终端下，HighGo数据库Tpmc值为61125.29
+
+###### 4.9.2、Oracle
 
 ![](https://github.com/caosw199509/caosw199509.github.io/blob/master/work_img/2019-09-06/oracle03.png?raw=true)
 
